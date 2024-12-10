@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:54:07 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/10 23:22:10 by rbestman         ###   ########.fr       */
+/*   Updated: 2024/12/11 00:30:46 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft_printf.h"
@@ -24,7 +24,7 @@ static int	ft_calculate_hex_len(unsigned int num)
 	return (len);
 }
 
-static char	*ft_convert_hex(unsigned int num, char specifier)
+static char	*ft_convert_hex(unsigned int num)
 {
 	char	*str;
 	int		len;

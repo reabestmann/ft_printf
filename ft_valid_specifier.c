@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:58:47 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/10 23:36:08 by rbestman         ###   ########.fr       */
+/*   Updated: 2024/12/11 00:29:23 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft_printf.h"
@@ -29,7 +29,7 @@ int	ft_valid_speficier(char specifier, va_list args)
 	if (specifier == 'p')
 		len += ft_print_ptr(args);
 	if (specifier == 'x' | specifier == 'X')
-		len += ft_print_hex(args);
+		len += ft_print_hex(specifier, args);
 	va_end(args);
 	return (len);
 }
