@@ -6,7 +6,7 @@
 /*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:52:39 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/10 23:20:08 by rbestman         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:41:05 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_PRINTF_H
@@ -16,13 +16,13 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
-int		ft_valid_specifier(char specifier, va_list args);
-void	ft_print_char(va_list args);
-int		ft_print_signed_int(va_list args);
-int		ft_print_ptr(va_list args);
+//int		ft_valid_specifier(va_list args, const char specifier);
+int		ft_print_char(char c);
+int		ft_print_signed_int(int num);
+int		ft_print_ptr(void *ptr);
 int		ft_print_str(va_list args);
-int		ft_print_unsigned_int(va_list args);
-int		ft_print_hex(char specifier, va_list args);
+int		ft_print_unsigned_int(unsigned int num);
+int		ft_print_hex( unsigned int num, char speficier);
 char	*ft_utoa(unsigned int num);
 
 #endif

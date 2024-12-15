@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -Ilibft
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 NAME = libftprintf.a
-SRC = ft_printf.c ft_valid_specifier.c ft_print_char.c \
+SRC = ft_printf.c ft_print_char.c \
       ft_print_str.c ft_print_signed_int.c ft_print_unsigned_int.c \
       ft_print_ptr.c ft_print_hex.c ft_utoa.c
 OBJ = $(SRC:.c=.o)

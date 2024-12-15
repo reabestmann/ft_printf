@@ -6,28 +6,31 @@
 /*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:55:13 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/10 23:33:41 by rbestman         ###   ########.fr       */
+/*   Updated: 2024/12/14 20:06:58 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft_printf.h"
 
-static size_t	ft_check_specifier(const char *format, va_list args)
+static int     ft_valid_specifier(va_list args, const char specifier)
 {
-	va_list	args_cpy;
-	char	specifier;
-	int		len;
-
-	len = 1;
-	specifier = *(format + 1);
-	if (ft_strchr("cdpsiuxX%", specifier))
-	{
-		va_copy(args_cpy, args);
-		len += ft_valid_specifier(specifier, args_cpy);
-		va_end(args_cpy);
-	}
-	return (len);
+        if (specifier == 'c')
+                return (ft_print_char(va_arg(args, int)));
+        else if (specifier == '%')
+                return (ft_print_char('%'));
+        else if (specifier == 's')
+                return (ft_print_str(args));
+        else if (specifier == 'd' || specifier == 'i')
+                return (ft_print_signed_int(va_arg(args, int)));
+        else if (specifier == 'u')
+                return (ft_print_unsigned_int(va_arg(args, unsigned int)));
+        else if (specifier == 'p')
+                return (ft_print_ptr(va_arg(args, void *)));
+        else if (specifier == 'x' || specifier == 'X')
+                return (ft_print_hex(va_arg(args, unsigned int), specifier));
+        else
+                return (0);
 }
-
+ 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -35,18 +38,21 @@ int	ft_printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
-	if (format[ft_strlen(format) - 1] == '%'
-		&& !(ft_strchr("cdpsiuxX%", format[ft_strlen(format) - 2])))
-		return (-1);
-	va_start(args, format);
+	//if (format[ft_strlen(format) - 1] == '%'
+	//	&& !(ft_strchr("cdpsiuxX%", format[ft_strlen(format) - 2])))
+	//	return (-1);
 	len = 0;
-	while (format[len])
+	va_start(args, format);
+	while (*format)
 	{
-		if (format[len] == '%')
-			len += ft_check_specifier(&format[len], args);
+		if (*format == '%')
+		{
+			format++;
+			len += ft_valid_specifier(args, *format);
+		}
 		else
-			ft_putchar_fd(format[len], 1);
-		len++;
+			len += ft_print_char(*format);
+		format++;
 	}
 	va_end(args);
 	return (len);
