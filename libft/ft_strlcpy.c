@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/11/13 13:27:02 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/25 12:16:18 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
 
-int	ft_print_str(char *str)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	if (!str)
+	size_t	l;
+
+	l = 0;
+	if (size > 0)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		while ((l < size - 1) && src[l])
+		{
+			dst[l] = src[l];
+			l++;
+		}
+		dst[l] = 0;
 	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	return (ft_strlen((char *)src));
 }

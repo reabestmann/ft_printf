@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/11/21 18:03:48 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/21 18:17:24 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
 
-int	ft_print_str(char *str)
+#include "libft.h"
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (!str)
+	if (!s)
+		return ;
+	while (*s)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
 }

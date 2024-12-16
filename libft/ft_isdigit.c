@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/09/04 14:54:13 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/11 16:46:50 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
+#include "libft.h"
 
-int	ft_print_str(char *str)
+int	ft_isdigit(int c)
 {
-	if (!str)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

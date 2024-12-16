@@ -6,12 +6,12 @@
 /*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 22:54:07 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/14 18:28:34 by rbestman         ###   ########.fr       */
+/*   Updated: 2024/12/16 12:54:47 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft_printf.h"
 
-static  int	ft_hex_len(unsigned int num)
+static	int	ft_hex_len(unsigned int num)
 {
 	int	len;
 
@@ -33,7 +33,7 @@ static void	ft_convert_hex(unsigned int num, char specifier)
 	}
 	else if (num <= 9)
 		ft_putchar_fd((num + '0'), 1);
-	else 
+	else
 	{
 		if (specifier == 'x')
 			ft_print_char((num - 10 + 'a'));
@@ -46,7 +46,7 @@ int	ft_print_hex(unsigned int num, char specifier)
 {
 	if (num == 0)
 		ft_print_char('0');
-	else 
+	else
 		ft_convert_hex(num, specifier);
 	return (ft_hex_len(num));
 }

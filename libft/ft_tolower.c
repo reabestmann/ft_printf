@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/09/06 08:25:14 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/11 16:50:47 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
+#include "libft.h"
 
-int	ft_print_str(char *str)
+int	ft_tolower(int c)
 {
-	if (!str)
+	if (c >= 65 && c <= 90)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		c = c + 32;
 	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	return (c);
 }

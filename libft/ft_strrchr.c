@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/11/14 11:03:00 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/25 15:40:18 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
 
-int	ft_print_str(char *str)
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
 {
-	if (!str)
+	const char	*p;
+
+	p = NULL;
+	while (*s)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		if (*s == (char)c)
+			p = s;
+		s++;
 	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	if ((char)c == '\0')
+		return ((char *)s);
+	return ((char *)p);
 }

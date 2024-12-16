@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/11/10 17:38:17 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/25 15:25:23 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
+#include "libft.h"
 
-int	ft_print_str(char *str)
+char	*ft_strdup(char *src)
 {
-	if (!str)
+	char	*dup;
+	int		i;
+
+	dup = malloc(ft_strlen(src) + 1);
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		dup[i] = src[i];
+		i++;
 	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	dup[i] = '\0';
+	return (dup);
 }

@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbestman <rbestman@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: rbestman <rbestman@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 22:54:43 by rbestman          #+#    #+#             */
-/*   Updated: 2024/12/16 13:10:06 by rbestman         ###   ########.fr       */
+/*   Created: 2024/11/13 16:26:10 by rbestman          #+#    #+#             */
+/*   Updated: 2024/11/25 14:05:03 by rbestman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft_printf.h"
 
-int	ft_print_str(char *str)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (!str)
+	const unsigned char	*t;
+	size_t				i;
+
+	t = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		if (t[i] == (unsigned char)c)
+		{
+			return ((void *)(t + i));
+		}
+		i++;
 	}
-	else
-		ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	return (NULL);
 }
